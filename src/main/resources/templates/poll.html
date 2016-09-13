@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	xmlns:spring="http://www.springframework.org/tags"
+	layout:decorator="Layout">
+<head>
+<title>Vote!</title>
+</head>
+
+<section layout:fragment="conteudo">
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<div class="clearfix">
+				<h1 class="panel-title liberty-title-panel">Onde deseja almoçar
+					hoje?</h1>
+				<a class="btn btn-link liberty-link-panel"
+					th:href="@{/poll/results}">Resultados</a>
+			</div>
+		</div>
+
+		<div class="panel-body">
+
+			<form class="form-horizontal" method="POST" th:action="@{/poll/vote}"
+				th:object="${vote}">
+
+				<div layout:include="MensagemGeral"></div>
+				<div layout:include="MensagemErro"></div>
+
+				<div class="alert alert-warning" role="alert"
+					th:if="${#lists.isEmpty(restaurants)}">Ops, parece que não há
+					nenhum restaurante disponível!</div>
+				<div th:if="${not #lists.isEmpty(restaurants)}">
+					<div th:each="restaurant : ${restaurants}">
+						<input class="magic-radio" type="radio" th:id="${restaurant.id}"
+							th:value="${restaurant.id}" th:field="*{chosenRestaurantId}" />
+						<label th:text="${restaurant.name}" th:for="${restaurant.id}"></label>
+					</div>
+				</div>
+				<div class="button-vote" th:if="${not #lists.isEmpty(restaurants)}">
+					<button type="submit" class="btn btn-primary">Votar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="panel panel-info" th:if="${not #lists.isEmpty(lastWinners)}">
+		<div class="panel-heading">
+			<div class="clearfix">
+				<h3 class="panel-title liberty-title-panel">Vencedores da
+					última semana</h3>
+			</div>
+		</div>
+
+		<div class="panel-body">
+			<ul class="list-group">
+				<li class="list-group-item" th:each="winner : ${lastWinners}"><span
+					th:text="${winner.name}">Winner</span></li>
+			</ul>
+		</div>
+	</div>
+</section>
+</html>

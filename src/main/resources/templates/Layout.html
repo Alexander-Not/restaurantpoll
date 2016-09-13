@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Restaurant Poll - Choose where you want to eat today!</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/magic-check.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap-datepicker.standalone.min.css}" />
+</head>
+
+<body>
+	<header layout:include="Header"></header>
+
+	<section layout:fragment="conteudo">
+		<p>Conteudo Principal</p>
+	</section>
+
+	<script th:src="@{/js/jquery-2.2.0.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/restaurantpoll.js}"></script>
+
+</body>
+</html>

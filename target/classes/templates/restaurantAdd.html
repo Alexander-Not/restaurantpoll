@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layout">
+<head>
+<title>Cadastro de Restaurante</title>
+</head>
+
+<section layout:fragment="conteudo">
+	<form class="form-horizontal" method="POST" th:action="@{/restaurants}"
+		th:object="${restaurant}">
+
+		<div layout:include="MensagemGeral"></div>
+		<div layout:include="MensagemErro"></div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+
+				<div class="clearfix">
+					<h1 class="panel-title liberty-title-panel">Novo Restaurant</h1>
+					<a class="btn btn-link liberty-link-panel"
+						th:href="@{/restaurants}">Pesquisa de Restaurantes</a>
+					<h1 class="panel-title"></h1>
+				</div>
+
+			</div>
+
+
+			<div class="panel-body">
+				<input type="hidden" th:field="*{id}" />
+
+				<div class="form-group"
+					th:classappend="${#fields.hasErrors('name')} ? has-error">
+					<label for="name" class="col-sm-2 control-label" th:text="#{name}"></label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="name"
+							th:field="*{name}" />
+					</div>
+				</div>
+				<div class="form-group"
+					th:classappend="${#fields.hasErrors('description')} ? has-error">
+					<label for="description" class="col-sm-2 control-label">Descrição</label>
+					<div class="col-sm-4">
+						<textarea class="form-control" id="description"
+							th:field="*{description}" rows="2"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="category"
+							th:field="*{category}">
+							<option th:each="category : ${allCategories}"
+								th:value="${category}" th:text="${category.description}"></option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+
+</html>

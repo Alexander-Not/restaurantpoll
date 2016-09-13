@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	xmlns:spring="http://www.springframework.org/tags"
+	layout:decorator="Layout">
+<head>
+<title>Bem vindo!</title>
+</head>
+
+<section layout:fragment="conteudo">
+
+	<div class="panel panel-primary">
+
+		<div class="panel-heading">
+			<div class="clearfix">
+				<h1 class="panel-title liberty-title-panel">Pizza, again?!</h1>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div layout:include="MensagemGeral"></div>
+			<div class="bs-callout bs-callout-danger"
+				id="callout-glyphicons-dont-mix">
+				<h4>Bem vindo</h4>
+				<p>O botão abaixo gera 10 restaurantes.</p>
+			</div>
+			<spring:message code="addRestaurant" />
+			<form th:action="@{/restaurants/generate}">
+				<button type="submit" class="btn btn-primary btn-sm">Gerar
+					Restaurantes</button>
+			</form>
+		</div>
+
+	</div>
+</section>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	xmlns:spring="http://www.springframework.org/tags">
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" th:href="@{/index}"> <img alt="Food!"
+				th:src="@{/images/brand.jpg}" />
+			</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a th:href="@{/index}">Home</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Restaurantes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a th:href="@{/restaurants/new}">Adicionar
+								restaurante</a></li>
+						<li><a th:href="@{/restaurants}">Lista de Restaurantes</a></li>
+					</ul></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Votação<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a th:href="@{/poll/vote}">Votar</a></li>
+						<li><a th:href="@{/poll/results}">Resultados</a></li>
+					</ul></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Administrador<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a th:href="@{/poll/list}">Lista de Votos</a></li>
+					</ul></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Language<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="?lang=pt_BR">Português</a></li>
+						<li><a href="?lang=en">English</a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+</html>
