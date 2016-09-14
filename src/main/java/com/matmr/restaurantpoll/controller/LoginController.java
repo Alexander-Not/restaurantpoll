@@ -11,7 +11,7 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(@AuthenticationPrincipal User user) {
 		if (user != null) {
-			return "redirect:/restaurants";
+			return "redirect:/index";
 		}
 		
 		return "Login";

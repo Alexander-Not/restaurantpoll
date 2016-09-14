@@ -21,7 +21,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.formLogin()
 				.loginPage("/login") // <= custom login page
-				.defaultSuccessUrl("/home")
+				.defaultSuccessUrl("/index")
 				.and()
 				.logout()
 				.logoutSuccessUrl("/login")

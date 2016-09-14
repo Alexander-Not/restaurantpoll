@@ -8,6 +8,10 @@
 		margin-left: 120px;
 		margin-right: 120px;
 	}
+	.panel-success {
+		margin-left: 700px;
+		margin-right: 700px;
+	}
 	.alert {
 		margin-left: 20px;
 		margin-right: 20px;
@@ -19,24 +23,22 @@
 		margin-left: 5px;
 		margin-right: 5px;
 	}
+	.panel-success {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
 	.panel-info {
 		margin-left: 5px;
 		margin-right: 5px;
 	}
 }
 
-#background {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: url('../images/bg.jpg');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100%;
-	opacity: 0.3;
-	filter: alpha(opacity = 30);
+.full {
+    background: url('http://www.magic4walls.com/wp-content/uploads/2014/03/texture-tree-vector-grey-background-leaves-hd-wallpaper.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 .navbar-brand {

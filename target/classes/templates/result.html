@@ -12,21 +12,16 @@
 
 	<div layout:include="MensagemGeral"></div>
 
-	<div class="panel panel-primary">
+	<div class="panel panel-success">
 		<div class="panel-heading">
 			<div class="clearfix">
-				<h1 class="panel-title liberty-title-panel">Pesquisa de
-					Restaurantes</h1>
-				<a class="btn btn-link liberty-link-panel"
-					th:href="@{/restaurants/new}">Cadastrar Novo Restaurante</a>
+				<h1 class="panel-title liberty-title-panel">Winner</h1>
 			</div>
 		</div>
 
 		<div class="panel-body">
 
-
 			<div th:if="${winner != null}">
-				<h2 align="left">Winner</h2>
 				<dl>
 					<dt>Name</dt>
 					<dd th:text="${winner.name}">Name</dd>
@@ -35,33 +30,31 @@
 					<dd th:text="${winner.description}">Description</dd>
 				</dl>
 			</div>
-			
-			<div class="table-responsive">
-				<table class="table table-bordered table-striped">
-					<thead>
-						<tr>
-							<th class="text-left col-md-2">Nome</th>
-							<th class="text-left col-md-3">Número de votos</th>
-
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="vote : ${votes}">
-							<td class="text-left" th:text="${vote.chosenRestaurantId}"></td>
-							<td class="text-left" th:text="${vote.date}"></td>
-
-						</tr>
-						<tr>
-							<td colspan="5" th:if="${#lists.isEmpty(votes)}">Nenhum voto
-								foi encontrado!</td>
-						</tr>
-					</tbody>
-
-				</table>
-
-			</div>
 		</div>
+	</div>
 
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th class="text-left col-md-2">Nome</th>
+					<th class="text-left col-md-3">Número de votos</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vote : ${votes}">
+					<td class="text-left" th:text="${vote.chosenRestaurantId}"></td>
+					<td class="text-left" th:text="${vote.date}"></td>
+
+				</tr>
+				<tr>
+					<td colspan="5" th:if="${#lists.isEmpty(votes)}">Nenhum voto
+						foi encontrado!</td>
+				</tr>
+			</tbody>
+
+		</table>
 
 	</div>
 </section>
